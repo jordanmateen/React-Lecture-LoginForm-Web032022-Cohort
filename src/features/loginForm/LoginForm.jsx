@@ -24,7 +24,6 @@ function LoginForm(props) {
         handleLogin(formInfo)
         dispatch(setUserInfo(formInfo))
         dispatch(setUsername(formInfo.formName))
-
     }
     
     return (
