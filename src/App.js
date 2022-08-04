@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HomePage from './components/HomePage';
+import HomePage from './features/homepage/HomePage';
 import LoginForm from './features/loginForm/LoginForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

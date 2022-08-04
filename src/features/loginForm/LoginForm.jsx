@@ -3,10 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 // react-redux imports
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
 //slice imports
 import {setUserInfo} from './loginFormSlice'
+import {setUsername} from '../homepage/homePageSlice'
 
 function LoginForm(props) {
     
@@ -22,6 +23,8 @@ function LoginForm(props) {
         const { handleLogin } = props
         handleLogin(formInfo)
         dispatch(setUserInfo(formInfo))
+        dispatch(setUsername(formInfo.formName))
+
     }
     
     return (
