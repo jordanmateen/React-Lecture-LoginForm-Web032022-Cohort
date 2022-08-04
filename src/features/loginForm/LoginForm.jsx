@@ -9,8 +9,6 @@ import {useSelector, useDispatch} from 'react-redux'
 import {setUserInfo} from './loginFormSlice'
 
 function LoginForm(props) {
-
-    const name = useSelector((state)=>state.logInState.name)
     
     const dispatch = useDispatch();
     const [formInfo, setInfo] = useState({
@@ -19,13 +17,11 @@ function LoginForm(props) {
         formPass: ''
     });
     
-    
     const loginUser = (e) => {
         e.preventDefault();
         const { handleLogin } = props
         handleLogin(formInfo)
         dispatch(setUserInfo(formInfo))
-        console.log(name)
     }
     
     return (
