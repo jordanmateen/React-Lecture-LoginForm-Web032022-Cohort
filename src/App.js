@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import HomePage from './components/HomePage';
-import LoginForm from './components/LoginForm';
+import LoginForm from './features/loginForm/LoginForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

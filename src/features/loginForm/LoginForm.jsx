@@ -2,19 +2,32 @@ import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+// react-redux imports
+import {useSelector, useDispatch} from 'react-redux'
+
+//slice imports
+import {setUserInfo} from './loginFormSlice'
+
 function LoginForm(props) {
 
+    const name = useSelector((state)=>state.logInState.name)
+    
+    const dispatch = useDispatch();
     const [formInfo, setInfo] = useState({
         formName: '',
         formEmail: '',
         formPass: ''
     });
-
+    
+    
     const loginUser = (e) => {
         e.preventDefault();
         const { handleLogin } = props
         handleLogin(formInfo)
+        dispatch(setUserInfo(formInfo))
+        console.log(name)
     }
+    
     return (
         <>
             <h2>Login</h2>
