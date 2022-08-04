@@ -2,6 +2,18 @@ import React, { useState } from 'react';
 import HomePage from './components/HomePage';
 import LoginForm from './components/LoginForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components'
+//styles
+const LoginWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4em;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+`
 
 function App() {
 
@@ -32,7 +44,7 @@ function App() {
   }
 
   return (
-    <>{isLoggedIn ? <HomePage name={userInfo.name} /> : <LoginForm handleLogin={userLogin}/>}</>
+    <LoginWrapper>{isLoggedIn ? <HomePage name={userInfo.name} /> : <LoginForm handleLogin={userLogin}/>}</LoginWrapper>
   )
 }
 

@@ -1,7 +1,18 @@
 import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import styled from 'styled-components'
 
+//styles
+
+const FormWrapper = styled.div`
+    padding: 1em;
+    width:50%;
+    height:50%;
+    border: 5px solid;
+    border-color: #b2b2b2;
+    background-color: #ffffff;
+`
 function LoginForm(props) {
 
     const [formInfo, setInfo] = useState({
@@ -16,7 +27,7 @@ function LoginForm(props) {
         handleLogin(formInfo)
     }
     return (
-        <>
+        <FormWrapper>
             <h2>Login</h2>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasic">
@@ -35,7 +46,7 @@ function LoginForm(props) {
                 
                 <Button onClick={loginUser} variant="success" type="submit"> Take me to my account </Button>
             </Form>
-        </>
+        </FormWrapper>
     )
 }
 
