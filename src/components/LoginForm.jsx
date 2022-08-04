@@ -13,6 +13,12 @@ const FormWrapper = styled.div`
     border-color: #b2b2b2;
     background-color: #ffffff;
 `
+
+const SButton = styled(Button)`
+  background-color: #2f3f94;
+  border: none;
+`;
+
 function LoginForm(props) {
 
     const [formInfo, setInfo] = useState({
@@ -44,7 +50,7 @@ function LoginForm(props) {
                     <Form.Control type="password" placeholder="" onChange={(event) => setInfo({...formInfo, formPass:event.target.value})} />
                 </Form.Group>
                 
-                <Button onClick={loginUser} variant="success" type="submit"> Take me to my account </Button>
+                <SButton onClick={loginUser} variant="success" type="submit"> Take me to my account </SButton>
             </Form>
         </FormWrapper>
     )

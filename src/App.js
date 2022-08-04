@@ -11,8 +11,8 @@ const LoginWrapper = styled.div`
   align-items: center;
   padding: 4em;
   background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-
+  background-image: linear-gradient(43deg, #4158D0 0%, #60285a 46%, #FFCC70 100%);
+  height: 100vh;
 `
 
 function App() {
