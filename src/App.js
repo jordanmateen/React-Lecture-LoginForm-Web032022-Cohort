@@ -15,6 +15,13 @@ const LoginWrapper = styled.div`
   height: 100vh;
 `
 
+
+// selector
+const getUserName = (state) =>{
+  return state.name
+}
+
+
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -37,14 +44,15 @@ function App() {
       password: userData.formPass
     })
 
-    if(userInfo.name === admin.name && userInfo.email === admin.email && userInfo.password === admin.password){
-      setIsLoggedIn(true)
-    }
+    setIsLoggedIn(true)
+    // if(userInfo.name === admin.name && userInfo.email === admin.email && userInfo.password === admin.password){
+    // setIsLoggedIn(true)
+    // }
 
   }
 
   return (
-    <LoginWrapper>{isLoggedIn ? <HomePage name={userInfo.name} /> : <LoginForm handleLogin={userLogin}/>}</LoginWrapper>
+    <LoginWrapper>{isLoggedIn ? <HomePage getUserName= {getUserName} /> : <LoginForm handleLogin={userLogin}/>}</LoginWrapper>
   )
 }
 

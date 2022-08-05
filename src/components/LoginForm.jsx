@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components'
+import {connect} from 'react-redux'
+import { setUser } from '../actions/loginActions';
 
 //styles
 
@@ -18,7 +20,6 @@ const SButton = styled(Button)`
   background-color: #2f3f94;
   border: none;
 `;
-
 function LoginForm(props) {
 
     const [formInfo, setInfo] = useState({
@@ -29,8 +30,9 @@ function LoginForm(props) {
 
     const loginUser = (e) => {
         e.preventDefault();
-        const { handleLogin } = props
+        const { handleLogin, dispatchUser } = props
         handleLogin(formInfo)
+        dispatchUser(formInfo)
     }
     return (
         <FormWrapper>
@@ -56,4 +58,13 @@ function LoginForm(props) {
     )
 }
 
-export default LoginForm
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatchUser: (userInfo)=>{
+            dispatch(setUser(userInfo))
+        }
+    }
+}
+export default connect(null, mapDispatchToProps)(LoginForm);
+
+
