@@ -8,7 +8,7 @@ This repo will contain the code from the react section of this cohort. The code 
 
 ## NOTES: 
 - [Intro to React](https://hackmd.io/@XinhdUgJSt2kHuiYLatSqQ/SkitZdoic)
-- [Intro to React Router](https://hackmd.io/@XinhdUgJSt2kHuiYLatSqQ/Sy4BEgMn9) -> React Router In-class coding session [repo](https://github.com/jordanmateen/React-101-Lecture-Web03)
+- [Intro to React Router](https://hackmd.io/@XinhdUgJSt2kHuiYLatSqQ/Sy4BEgMn9): React Router In-class coding session [repo](https://github.com/jordanmateen/React-101-Lecture-Web03).
 - [Intro to Redux](https://hackmd.io/@XinhdUgJSt2kHuiYLatSqQ/S1-FReA3c)
 
 ----    
