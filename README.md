@@ -2,9 +2,9 @@
 This repo will contain the code from the react section of this cohort. The code will demonstrate how to build react applications via a form. The component will start with self maintaining state. The end result will use redux.
 
 ## Branches:
-`react-only`: Demonstrates prop drilling and how to pass props between components.
-`react-redux`: Connectiong our redux store to our react applications. 
-`modern-redux-with-@reduxjs/toolkit`: Redux written in a modern way.
+- `react-only`: Demonstrates prop drilling and how to pass props between components.
+- `react-redux`: Connectiong our redux store to our react applications. 
+- `modern-redux-with-@reduxjs/toolkit`: Redux written in a modern way.
 
 ## NOTES: 
 - [Intro to React](https://hackmd.io/@XinhdUgJSt2kHuiYLatSqQ/SkitZdoic)
