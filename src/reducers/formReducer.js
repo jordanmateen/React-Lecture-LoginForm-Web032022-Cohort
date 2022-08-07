@@ -1,10 +1,14 @@
 const initialState = {
     name: '',
     email: '',
-    password:''
+    password:'',
+    age: '',
+    height: '',
+    gender: ''
+
 }
 
-export const reducer = (state=initialState, action) => {
+export const loginFormReducer = (state=initialState, action) => {
     const {type, payload} = action
     switch(type){
         case "SET_USER":

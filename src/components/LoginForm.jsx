@@ -3,7 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components'
 import {connect} from 'react-redux'
-import { setUser } from '../actions/loginActions';
+import {setUser} from '../actions/loginActions';
+import {updateUsername} from '../actions/homepageAction'
 
 //styles
 
@@ -30,9 +31,11 @@ function LoginForm(props) {
 
     const loginUser = (e) => {
         e.preventDefault();
-        const { handleLogin, dispatchUser } = props
+        const { handleLogin, dispatchUser, updateHomepageUsername } = props
         handleLogin(formInfo)
         dispatchUser(formInfo)
+        updateHomepageUsername(formInfo.formName);
+        
     }
     return (
         <FormWrapper>
@@ -62,9 +65,11 @@ const mapDispatchToProps = (dispatch) => {
     return {
         dispatchUser: (userInfo)=>{
             dispatch(setUser(userInfo))
+        },
+        updateHomepageUsername: (username)=> {
+            dispatch(updateUsername(username))
         }
     }
 }
 export default connect(null, mapDispatchToProps)(LoginForm);
-
 

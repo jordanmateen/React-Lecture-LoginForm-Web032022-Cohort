@@ -3,6 +3,7 @@ import HomePage from './components/HomePage';
 import LoginForm from './components/LoginForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components'
+
 //styles
 const LoginWrapper = styled.div`
   display: flex;

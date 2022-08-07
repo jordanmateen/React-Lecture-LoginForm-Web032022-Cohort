@@ -21,7 +21,7 @@ function HomePage(props) {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const name = ownProps.getUserName(state);
+  const name = state.homepage.username // ownProps.getUserName(state);
   return {
     name
   }
