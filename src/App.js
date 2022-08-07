@@ -3,6 +3,7 @@ import HomePage from './components/HomePage';
 import LoginForm from './components/LoginForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components'
+
 //styles
 const LoginWrapper = styled.div`
   display: flex;
@@ -14,6 +15,13 @@ const LoginWrapper = styled.div`
   background-image: linear-gradient(43deg, #4158D0 0%, #60285a 46%, #FFCC70 100%);
   height: 100vh;
 `
+
+
+// selector
+const getUserName = (state) =>{
+  return state.name
+}
+
 
 function App() {
 
@@ -37,14 +45,15 @@ function App() {
       password: userData.formPass
     })
 
-    if(userInfo.name === admin.name && userInfo.email === admin.email && userInfo.password === admin.password){
-      setIsLoggedIn(true)
-    }
+    setIsLoggedIn(true)
+    // if(userInfo.name === admin.name && userInfo.email === admin.email && userInfo.password === admin.password){
+    // setIsLoggedIn(true)
+    // }
 
   }
 
   return (
-    <LoginWrapper>{isLoggedIn ? <HomePage name={userInfo.name} /> : <LoginForm handleLogin={userLogin}/>}</LoginWrapper>
+    <LoginWrapper>{isLoggedIn ? <HomePage getUserName= {getUserName} /> : <LoginForm handleLogin={userLogin}/>}</LoginWrapper>
   )
 }
 

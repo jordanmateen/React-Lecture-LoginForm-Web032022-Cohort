@@ -3,8 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components'
 
-//styles
+// Action imports
+import {setUser} from '../actions/loginActions';
+import {updateUsername} from '../actions/homepageAction'
 
+// react-redux imports
+import {useDispatch} from 'react-redux';
+
+//styles
 const FormWrapper = styled.div`
     padding: 1em;
     width:50%;
@@ -20,7 +26,7 @@ const SButton = styled(Button)`
 `;
 
 function LoginForm(props) {
-
+    const dispatch = useDispatch()
     const [formInfo, setInfo] = useState({
         formName: '',
         formEmail: '',
@@ -31,6 +37,8 @@ function LoginForm(props) {
         e.preventDefault();
         const { handleLogin } = props
         handleLogin(formInfo)
+        dispatch(setUser(formInfo))
+        dispatch(updateUsername(formInfo.formName));
     }
     return (
         <FormWrapper>
@@ -56,4 +64,5 @@ function LoginForm(props) {
     )
 }
 
-export default LoginForm
+export default LoginForm;
+
