@@ -2,12 +2,15 @@ import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components'
-import {connect} from 'react-redux'
+
+// Action imports
 import {setUser} from '../actions/loginActions';
 import {updateUsername} from '../actions/homepageAction'
 
-//styles
+// react-redux imports
+import {useDispatch} from 'react-redux';
 
+//styles
 const FormWrapper = styled.div`
     padding: 1em;
     width:50%;
@@ -21,8 +24,9 @@ const SButton = styled(Button)`
   background-color: #2f3f94;
   border: none;
 `;
-function LoginForm(props) {
 
+function LoginForm(props) {
+    const dispatch = useDispatch()
     const [formInfo, setInfo] = useState({
         formName: '',
         formEmail: '',
@@ -31,11 +35,10 @@ function LoginForm(props) {
 
     const loginUser = (e) => {
         e.preventDefault();
-        const { handleLogin, dispatchUser, updateHomepageUsername } = props
+        const { handleLogin } = props
         handleLogin(formInfo)
-        dispatchUser(formInfo)
-        updateHomepageUsername(formInfo.formName);
-        
+        dispatch(setUser(formInfo))
+        dispatch(updateUsername(formInfo.formName));
     }
     return (
         <FormWrapper>
@@ -61,15 +64,5 @@ function LoginForm(props) {
     )
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        dispatchUser: (userInfo)=>{
-            dispatch(setUser(userInfo))
-        },
-        updateHomepageUsername: (username)=> {
-            dispatch(updateUsername(username))
-        }
-    }
-}
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default LoginForm;
 

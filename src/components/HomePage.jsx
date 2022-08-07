@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import {connect} from 'react-redux';
+// react-redux imports
+import {useSelector} from 'react-redux';
 
 //styles
 const GreetingWrapper = styled.div`
@@ -9,8 +10,8 @@ color: white;
 
 const Greeting = styled.h1``
 
-function HomePage(props) {
-    const { name } = props 
+function HomePage() {
+  const name = useSelector((state)=>state.homepage.username)
   return (
     <GreetingWrapper>
       <Greeting>
@@ -20,10 +21,4 @@ function HomePage(props) {
   )
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const name = state.homepage.username // ownProps.getUserName(state);
-  return {
-    name
-  }
-} 
-export default connect(mapStateToProps, null)(HomePage)
+export default HomePage
