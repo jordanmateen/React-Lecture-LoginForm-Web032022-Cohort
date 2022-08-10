@@ -6,6 +6,7 @@ This repo will contain the code from the react section of this cohort. The code 
 - `react-redux`: Connectiong our redux store to our react applications. 
 - `modern-redux-with-@reduxjs/toolkit`: Redux written in a modern way.
 - `react-redux-without-connect-MSTP-MDTP`: Dispatching and selection values from the state with out using a wrapped component
+- `reac-async`: Using the `useEffect` hook to set state with data from API. see `LoginForm.jsx`
 
 ## Notes: 
 - [Intro to React](https://hackmd.io/@XinhdUgJSt2kHuiYLatSqQ/SkitZdoic)
