@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components'
@@ -33,6 +33,20 @@ function LoginForm(props) {
         formPass: ''
     });
 
+    useEffect(()=>{
+        const getUser =  async () => {
+            const user = await fetch('https://jsonplaceholder.typicode.com/users/8');
+            const parsedUser = await user.json();
+           
+            setInfo({...formInfo, formName: parsedUser.name, formEmail: parsedUser.email, formPass: ''});
+            console.log(formInfo, 'here');
+        }
+
+       getUser()
+    }, [])
+
+    
+
     const loginUser = (e) => {
         e.preventDefault();
         const { handleLogin } = props
@@ -46,11 +60,11 @@ function LoginForm(props) {
             <Form>
                 <Form.Group className="mb-3" controlId="formBasic">
                     <Form.Label>Name: </Form.Label>
-                    <Form.Control type="email" placeholder="" onChange={(event) => setInfo({...formInfo, formName:event.target.value}) }/>
+                    <Form.Control type="email" placeholder="" onChange={(event) => setInfo({...formInfo, formName:event.target.value})} value={formInfo.formName}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address:</Form.Label>
-                    <Form.Control type="email" placeholder="" onChange={(event) => setInfo({...formInfo, formEmail:event.target.value})} />
+                    <Form.Control type="email" placeholder="" onChange={(event) => setInfo({...formInfo, formEmail:event.target.value})} value={formInfo.formEmail} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
