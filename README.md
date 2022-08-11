@@ -7,6 +7,7 @@ This repo will contain the code from the react section of this cohort. The code 
 - `modern-redux-with-@reduxjs/toolkit`: Redux written in a modern way.
 - `react-redux-without-connect-MSTP-MDTP`: Dispatching and selection values from the state with out using a wrapped component
 - `react-async`: Using the `useEffect` hook to set state with data from API. see `LoginForm.jsx`
+- `react-redux-async-with-thunks`: Demonstrate the purpose of using thunks in redux so that we can extract our API calls away from the UI layer.
 
 ## Notes: 
 - [Intro to React](https://hackmd.io/@XinhdUgJSt2kHuiYLatSqQ/SkitZdoic)
