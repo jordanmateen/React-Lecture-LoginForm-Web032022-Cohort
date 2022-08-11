@@ -15,7 +15,8 @@ This repo will contain the code from the react section of this cohort. The code 
 - [Intro to Redux](https://hackmd.io/@XinhdUgJSt2kHuiYLatSqQ/S1-FReA3c)
 
 ## Documentation
-- [React Docx](https://reactjs.org/)
+- [React Docs](https://reactjs.org/)
 - [Redux Docs](https://redux.js.org/)
 - [React-Redux Doc](https://react-redux.js.org/)
 - [Styled Components](https://styled-components.com/)
+- [Redux Toolkit Docs](https://redux-toolkit.js.org/)
