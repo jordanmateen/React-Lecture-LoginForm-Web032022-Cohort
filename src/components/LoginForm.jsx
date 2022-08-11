@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components'
 
 // Action imports
-import {setUser} from '../actions/loginActions';
+import {setUser, fetchUserData} from '../actions/loginActions';
 import {updateUsername} from '../actions/homepageAction'
 
 // react-redux imports
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 //styles
 const FormWrapper = styled.div`
@@ -27,12 +27,23 @@ const SButton = styled(Button)`
 
 function LoginForm(props) {
     const dispatch = useDispatch()
+    const name = useSelector((state)=> state.loginForm.name )
+    const email = useSelector(state => state.loginForm.email)
     const [formInfo, setInfo] = useState({
         formName: '',
         formEmail: '',
         formPass: ''
     });
 
+    useEffect(()=>{
+        dispatch(fetchUserData())
+        setInfo({
+            formName: name,
+            formEmail: email,
+            formPass: ''
+        })
+
+    })
     const loginUser = (e) => {
         e.preventDefault();
         const { handleLogin } = props
@@ -40,17 +51,19 @@ function LoginForm(props) {
         dispatch(setUser(formInfo))
         dispatch(updateUsername(formInfo.formName));
     }
+
+
     return (
         <FormWrapper>
             <h2>Login</h2>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasic">
                     <Form.Label>Name: </Form.Label>
-                    <Form.Control type="email" placeholder="" onChange={(event) => setInfo({...formInfo, formName:event.target.value}) }/>
+                    <Form.Control type="email" placeholder="" onChange={(event) => setInfo({...formInfo, formName:event.target.value})} value = {formInfo.formName}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address:</Form.Label>
-                    <Form.Control type="email" placeholder="" onChange={(event) => setInfo({...formInfo, formEmail:event.target.value})} />
+                    <Form.Control type="email" placeholder="" onChange={(event) => setInfo({...formInfo, formEmail:event.target.value})}value = {formInfo.formEmail} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
